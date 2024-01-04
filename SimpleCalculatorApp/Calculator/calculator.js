@@ -1,7 +1,4 @@
-console.log('testtsstst');
 
-
-// this is a test comment 
 
 function inputNumber1(number){
     const output = document.getElementById("output");
@@ -9,7 +6,6 @@ function inputNumber1(number){
 }
 
 function clear1(){
-    console.log('clearrr');
     document.getElementById("output").value = '';
 }
 
@@ -20,11 +16,10 @@ function createArrays(input, arrOperators, arrNumbers){
             arrNumbers.push(numberBuilder);
             numberBuilder = '';
             arrOperators.push(input.charAt(item));
-        }
-        else{
+        } else{
             numberBuilder += input.charAt(item);
         }
-        if(item === input.length-1){
+        if(item === input.length-1){    // adding in the last number
             arrNumbers.push(numberBuilder);
         }
     }
@@ -43,25 +38,10 @@ function calculate(fNum, sNum, operator){
 }
 
 function isOperator(char){
-    if(char === '+'){
-        return true;
-    }
-    if(char === '-'){
-        return true;
-    }
-    if(char === '%'){
-        return true;
-    }
-    if(char === '/'){
-        return true;
-    }
-    if(char === 'X'){
-        return true;
-    }
-    return false;
+    return char === '+' || char === '-' || char === '%' || char === '/' || char === 'X';
 }
 
-function generateNumbers(firstNum, secondNum, operatorFound, operator){
+function generateNumbers(firstNum, secondNum, operatorFound, operator){  // rewrite using hashmap
     const input = document.getElementById('output').value;
     let arrOfNumbers = [];
     let arrOfOp = [];
